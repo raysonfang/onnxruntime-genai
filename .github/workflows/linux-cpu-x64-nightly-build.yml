@@ -17,7 +17,7 @@ env:
   ort_url: "https://github.com/microsoft/onnxruntime/releases/download/v1.18.0/onnxruntime-linux-x64-1.18.0.tgz"
 jobs:
   job:
-    runs-on: ["self-hosted", "1ES.Pool=onnxruntime-genai-Ubuntu2204-AMD-CPU"]
+    runs-on:  ubuntu-22.04-arm
     steps:
       - name: Checkout OnnxRuntime GenAI repo
         uses: actions/checkout@v5
