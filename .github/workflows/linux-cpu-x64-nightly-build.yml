@@ -120,4 +120,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: onnxruntime-genai-linux-cpu-x64
-          path: ${{ github.workspace }}/build/**/*.a
+          path: ${{ github.workspace }}/build/**/*.jar
+          # path: ${{ github.workspace }}/build/**/*.a
