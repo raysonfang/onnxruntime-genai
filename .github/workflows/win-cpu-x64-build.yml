@@ -17,7 +17,7 @@ env:
 
 jobs:
   windows-cpu-x64-build:
-    runs-on: ["self-hosted", "1ES.Pool=onnxruntime-genai-Win2022-CPU"]
+    runs-on: windows-2022
     permissions:
       security-events: write
       actions: read
@@ -136,4 +136,10 @@ jobs:
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
-
+        
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: onnxruntime-genai-linux-cpu-x64
+          path: ${{ github.workspace }}/build/**/*.jar
+          # path: ${{ github.workspace }}/build/**/*.a
