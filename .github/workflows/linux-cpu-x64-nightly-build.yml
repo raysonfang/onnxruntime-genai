@@ -86,7 +86,7 @@ jobs:
           set -e -x
           mkdir -p ort/lib
           mv microsoft.ml.onnxruntime/${{ env.ORT_NIGHTLY_VERSION }}/build/native/include ort/
-          mv microsoft.ml.onnxruntime/${{ env.ORT_NIGHTLY_VERSION }}/runtimes/linux-x64/native/* ort/lib/
+          mv microsoft.ml.onnxruntime/${{ env.ORT_NIGHTLY_VERSION }}/runtimes/linux-arm64/native/* ort/lib/
           cp ort/lib/libonnxruntime.so ort/lib/libonnxruntime.so.1
 
       - name: Build with CMake and GCC
@@ -119,6 +119,6 @@ jobs:
       - name: Upload Build Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: onnxruntime-genai-linux-cpu-x64
+          name: onnxruntime-genai-linux-cpu-arm64
           path: ${{ github.workspace }}/build/**/*.jar
           # path: ${{ github.workspace }}/build/**/*.a
