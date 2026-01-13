@@ -1,11 +1,11 @@
 name: "Windows CUDA x64 Build"
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
-      - rel-*
-  pull_request:
+  #push:
+  #  branches:
+  #    - main
+  #    - rel-*
+  #pull_request:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.ref || github.sha }}
