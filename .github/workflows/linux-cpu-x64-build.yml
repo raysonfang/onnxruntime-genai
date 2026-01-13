@@ -21,7 +21,7 @@ jobs:
       - name: GLIBC VERSION 1
         shell: bash
         run: |
-          ls -l /lib64/libc.so*
+          ls -l /lib/libc.so*
           ldd --version
         continue-on-error: true
       - name: Checkout OnnxRuntime GenAI repo
