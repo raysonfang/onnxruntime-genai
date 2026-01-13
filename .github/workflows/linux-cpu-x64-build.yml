@@ -18,6 +18,11 @@ jobs:
   linux_cpu_x64:
     runs-on:  ubuntu-22.04
     steps:
+      - name: GLIBC VERSION 1
+        shell: bash
+        run: |
+          strings /lib64/libc.so.6 | grep GLIBC
+        continue-on-error: true
       - name: Checkout OnnxRuntime GenAI repo
         uses: actions/checkout@v5
         with:
@@ -103,7 +108,11 @@ jobs:
           python3 -m pip install -r test/python/cpu/torch/requirements.txt --user
           python3 -m pip install -r test/python/cpu/ort/requirements.txt --user
           python3 -m pip install --user --no-index --no-deps --find-links build/cpu/wheel onnxruntime_genai
-
+      - name: GLIBC VERSION 2
+        shell: bash
+        run: |
+          strings /lib64/libc.so.6 | grep GLIBC
+        continue-on-error: true
       - name: Verify Build Artifacts
         if: always()
         continue-on-error: true
